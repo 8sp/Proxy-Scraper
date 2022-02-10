@@ -1,145 +1,129 @@
-try:
-    import requests
-    import os
-    import time
-    from os import system, path
-    import json
-    import threading
-    import colorama
-    from colorama import Fore
-    colorama.init(autoreset=True)
-    system("title " + "Programmed By Lynch - Proxy Tool")
-
-except Exception as m:
-    print(m)
-    input("Press Any Key To Exit...\n")
-    exit()
-
-a = requests.Session()
+import requests
+import colorama
+import os 
+import time
+import random
+from colorama import Fore
+from os import system
+from os import system
+colorama.init(autoreset=True)
+system("title " + "Programmed By Lynch - Proxy Scraper")
 
 
-def mode():
+
+# FILES
+
+https_file = open("https.txt","a") 
+socks4_file = open("socks4.txt", "a")
+http_file = open("http.txt", "a")
+socks5_file = open("socks5.txt", "a")
+
+
+# REQUEST API
+
+rhttps = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=https&timeout=7000&country=ALL&anonymity=elite&ssl=no')
+rhttp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=http&timeout=7000&country=ALL&anonymity=elite&ssl=no')
+rs4 = requests.get('https://www.proxy-list.download/api/v1/get?type=socks4')
+rs5 = requests.get('https://www.proxy-list.download/api/v1/get?type=socks5')
+
+
+# HTTPS
+
+https = []
+https = rhttps.text
+https = https.split()
+lines = len(https)
+
+
+# HTTP
+
+http = []
+http = rhttp.text
+http = http.split()
+hlines = len(http)
+
+
+# SOCKS 4
+
+socks4 = []
+socks4 = rs4.text
+socks4 = socks4.split()
+slines = len(socks4)
+
+# SOCKS 5
+
+socks5 = []
+socks5 = rs5.text
+socks5 = socks5.split()
+sslines = len(socks5)
+
+
+number = random.randint(1, 5)
+
+def getsocks4():
+    for i in range(number):
+        print("[HTTPS] " + https[number])
+        time.sleep(0.1)
+
+
+
+
+def getsocks5():
+    for b in range(number):
+        print("[SOCKS5] " + socks5[number])
+        time.sleep(0.1)
+
+
+
+def main():
     print(f"""
- {Fore.CYAN} _                     _      {Fore.RESET}
- {Fore.CYAN}| |   _   _ _ __   ___| |__   {Fore.RESET}
- {Fore.CYAN}| |  | | | | '_ \ / __| '_ \  {Fore.RESET}
- {Fore.CYAN}| |__| |_| | | | | (__| | | | {Fore.RESET}
- {Fore.CYAN}|_____\__, |_| |_|\___|_| |_| {Fore.RESET}
- {Fore.CYAN}      |___/                   {Fore.RESET}
- """)
-    print(f"{Fore.RED}Made w Love By Lynch, [i]: @l7up{Fore.RESET}")
-    noe = int(input(f"""[{Fore.MAGENTA}1{Fore.RESET}] HTTP/S Proxy
-[{Fore.MAGENTA}2{Fore.RESET}] Socks4 Proxy
-[{Fore.MAGENTA}3{Fore.RESET}] Socks5 Proxy
-[{Fore.MAGENTA}4{Fore.RESET}] Proxy Checker
-[{Fore.MAGENTA}99{Fore.RESET}] Exit\n>> """))
-    if noe == 1:
-        url = "https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all"
-        res = a.get(url)
-        cou = res.text.count(":")
-        ress = res.text.replace("\n", "")
-        print(f"[{Fore.GREEN}+{Fore.RESET}] Grabbed & Saved {cou} HTTP/S Proxy")
-        with open("HTTPS.txt", "a") as Proxyy:
-            Proxyy.write(ress)
-            input(f"[{Fore.CYAN}${Fore.RESET}] Press Any Key To Exit...\n")
-
-    elif noe == 2:
-        url = "https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks4&timeout=10000&country=all"
-        res = a.get(url)
-        cou = res.text.count(":")
-        ress = res.text.replace("\n", "")
-        print(f"[{Fore.GREEN}+{Fore.RESET}] Grabbed & Saved {cou} Socks4 Proxy")
-        with open("SOCKS4.txt", "a") as Proxyy:
-            Proxyy.write(ress)
-            Proxyy.close()
-            input(f"[{Fore.CYAN}${Fore.RESET}] Press Any Key To Exit...\n")
-
-    elif noe == 3:
-        url = "https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks5&timeout=10000&country=all"
-        res = a.get(url)
-        cou = res.text.count(":")
-        ress = res.text.replace("\n", "")
-        print(f"[{Fore.GREEN}+{Fore.RESET}] Grabbed & Saved {cou} Socks5 Proxy")
-        with open("SOCKS5.txt", "a") as Proxyy:
-            Proxyy.write(ress)
-            input(f"[{Fore.CYAN}${Fore.RESET}] Press Any Key To Exit...\n")
-
-    elif noe == 4:
-        if path.exists("proxy.txt"):
-            threadn = int(input(f"[{Fore.CYAN}?{Fore.RESET}] Enter Your Threads: "))
-            threadlist = []
-            for t in range(threadn + 1):
-                i = threading.Thread(target=chkp)
-                i.start()
-                threadlist.append(i)
-            for i in threadlist:
-                i.join()
-        else:
-            print(f"[{Fore.RED}!{Fore.RESET}] Make a [proxy.txt] File & Try again")
-            time.sleep(3)
-            os.system("cls")
-            mode()
-
-    elif noe == 99:
-        print(f"[{Fore.RED}-{Fore.RESET}] Add @l7up on IG, & Cya Loser")
-        time.sleep(2)
+{Fore.CYAN} _                     _          {Fore.RESET}   
+{Fore.CYAN}| |   _   _ _ __   ___| |__       {Fore.RESET}  
+{Fore.CYAN}| |  | | | | '_ \ / __| '_ \      {Fore.RESET} 
+{Fore.CYAN}| |__| |_| | | | | (__| | | |     {Fore.RESET}
+{Fore.CYAN}|_____\__, |_| |_|\___|_| |_|     {Fore.RESET}
+{Fore.CYAN}      |___/                       {Fore.RESET}
+""")
+    print(f"[{Fore.MAGENTA}1{Fore.RESET}] " + "HTTPS")
+    print(f"[{Fore.MAGENTA}2{Fore.RESET}] " + "HTTP")
+    print(f"[{Fore.MAGENTA}3{Fore.RESET}] " + "SOCKS4")
+    print(f"[{Fore.MAGENTA}4{Fore.RESET}] " + "SOCKS5")
+    print(f"[{Fore.MAGENTA}5{Fore.RESET}] " + "ABOUT")
+    Type = input(">> ")
+    if(Type == "1"):
+        for n in range(lines):
+            print(f"[{Fore.GREEN}+{Fore.RESET}] Successfully Found HTTPS >> " + https[n])
+            https_file.write('\n' + https[n])
+            time.sleep(0.1)
+    elif(Type == "2"):
+        for a in range(hlines):
+            print(f"[{Fore.GREEN}+{Fore.RESET}] Successfully Found HTTP >> " + http[a])
+            http_file.write('\n' + http[a])
+            time.sleep(0.1)
+    elif(Type == "3"):
+        for v in range(slines):
+            print(f"[{Fore.GREEN}+{Fore.RESET}] Successfully Found SOCKS4 >> " + socks4[v])
+            socks4_file.write('\n' + socks4[v])
+            time.sleep(0.1)
+    elif(Type == "4"):
+        for i in range(sslines):
+            print(f"[{Fore.GREEN}+{Fore.RESET}] Successfully Found SOCKS5 >> " + socks5[i])
+            socks5_file.write('\n' + socks5[i])
+            time.sleep(0.1)
+    elif(Type == "5"):
+            print(f"[{Fore.CYAN}i{Fore.RESET}] Fully Written By Lynch, Known As @l7up")
+            exit()  
+            time.sleep(0.1)    
+    else:
+        print(f"[{Fore.RED}!{Fore.RESET}] Error, No Mode Found")
         exit()
 
-    else:
-        print(f"[{Fore.GREEN}-{Fore.RESET}] Error, No Mode Found")
-        time.sleep(3)
-        os.system("cls")
-        mode()
+
+    
 
 
-def chkp():
-    while 1:
-        good = 0
-        bad = 0
-        checked = 0
-        proxx = open("proxy.txt", "r")
-        for prox in proxx:
-            ip = prox.split(":")[0]
-            port = prox.split(":")[1]
-            url = "https://onlinechecker.proxyscrape.com/index.php"
-            head = {
-                "accept": "*/*",
-                "accept-encoding": "gzip, deflate, br",
-                "accept-language": "en-US,en;q=0.9",
-                "origin": "https://proxyscrape.com",
-                "referer": "https://proxyscrape.com/",
-                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36"
-            }
-            data = {
-                "ip_addr": ip,
-                "port": port
-            }
-            chk = a.post(url, data=data, headers=head)
-            if chk.text.find('working" : true') >= 0:
-                good += 1
-                checked += 1
-                print(f"[{Fore.GREEN}+{Fore.RESET}] {ip}:{port}")
 
-                if chk.text.find('type" : "HTTP/S') >= 0:
-                    with open(f"[{Fore.GREEN}+{Fore.RESET}] Checked-HTTP.txt", "a") as resu:
-                        resu.write(f"[{Fore.GREEN}+{Fore.RESET}] {ip}:{port}")
-                        resu.close()
-                elif chk.text.find('type" : "SOCKS4') >= 0:
-                    with open(f"[{Fore.GREEN}+{Fore.RESET}] Checked-SOCKS4.txt", "a") as resu:
-                        resu.write(f"[{Fore.GREEN}+{Fore.RESET}] {ip}:{port}")
-                        resu.close()
-                elif chk.text.find('type" : "SOCKS5') >= 0:
-                    with open(f"[{Fore.GREEN}+{Fore.RESET}] Checked-SOCKS5.txt", "a") as resu:
-                        resu.write(f"[{Fore.GREEN}+{Fore.RESET}] {ip}:{port}")
-                        resu.close()
-                else:
-                    with open(f"[{Fore.GREEN}+{Fore.RESET}] Checked-Unknown.txt", "a") as resu:
-                        resu.write(f"[{Fore.GREEN}+{Fore.RESET}] {ip}:{port}")
-                        resu.close()
-            else:
-                bad += 1
-                checked += 1
-                print(f"[{Fore.RED}-{Fore.RESET}] {ip}:{port}")
+if __name__ == "__main__":
 
-
-mode()
+    main()
+    print(f"[{Fore.CYAN}i{Fore.RESET}] All Proxy's Successfully Grabbed & Saved")
