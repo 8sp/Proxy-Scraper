@@ -1,5 +1,5 @@
 # Proxy-Scraper
-> ![Screenshot_1](https://user-images.githubusercontent.com/88463490/153513930-32878a2e-e0e2-4de9-81be-2e5ead38896b.png)
+> ![Screenshot_2](https://user-images.githubusercontent.com/88463490/153627263-9148f4c2-a7eb-45d1-b02c-46819a11a2c1.png)
 
 <h3 align="left">Socials:</h3>
 
