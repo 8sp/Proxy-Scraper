@@ -7,7 +7,7 @@ from colorama import Fore
 from os import system
 from os import system
 colorama.init(autoreset=True)
-system("title " + "Proxy-Scraper - By Lynch")
+system("title " + "Proxy-Scraper - By Null")
 
 
 
