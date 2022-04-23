@@ -1,3 +1,7 @@
+# Copyright © 2022 All Rights Reserved
+# Developed & Programmed By Null
+# For More Information Contact @entrysquad (IG)
+
 import requests
 import colorama
 import os 
@@ -10,7 +14,7 @@ system("title " + "Proxy-Scraper - By Null")
 
 
 
-# FILES
+# Files
 
 https_file = open("https.txt","a") 
 socks4_file = open("socks4.txt", "a")
@@ -18,7 +22,7 @@ http_file = open("http.txt", "a")
 socks5_file = open("socks5.txt", "a")
 
 
-# REQUEST API
+# Request Api
 
 rhttps = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=https&timeout=7000&country=ALL&anonymity=elite&ssl=no')
 rhttp = requests.get('https://api.proxyscrape.com/?request=displayproxies&proxytype=http&timeout=7000&country=ALL&anonymity=elite&ssl=no')
@@ -26,7 +30,7 @@ rs4 = requests.get('https://www.proxy-list.download/api/v1/get?type=socks4')
 rs5 = requests.get('https://www.proxy-list.download/api/v1/get?type=socks5')
 
 
-# HTTPS
+# Https
 
 https = []
 https = rhttps.text
@@ -34,7 +38,7 @@ https = https.split()
 lines = len(https)
 
 
-# HTTP
+# Http
 
 http = []
 http = rhttp.text
@@ -42,14 +46,14 @@ http = http.split()
 hlines = len(http)
 
 
-# SOCKS 4
+# Socks 4
 
 socks4 = []
 socks4 = rs4.text
 socks4 = socks4.split()
 slines = len(socks4)
 
-# SOCKS 5
+# Socks 5
 
 socks5 = []
 socks5 = rs5.text
@@ -59,6 +63,7 @@ sslines = len(socks5)
 
 number = random.randint(1, 5)
 
+# Def Function
 def getsocks4():
     for i in range(number):
         print("[HTTPS] " + https[number])
@@ -66,14 +71,14 @@ def getsocks4():
 
 
 
-
+# Def Function
 def getsocks5():
     for b in range(number):
         print("[SOCKS5] " + socks5[number])
         time.sleep(0.1)
 
 
-
+# Null
 def main():
     print(f"""
 {Fore.CYAN}   _   _       _ _ {Fore.RESET}
@@ -125,3 +130,4 @@ if __name__ == "__main__":
 
     main()
     print(f"[{Fore.CYAN}i{Fore.RESET}] All Proxy's Successfully Grabbed & Saved")
+# End Codding /
