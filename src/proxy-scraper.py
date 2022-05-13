@@ -81,11 +81,12 @@ def getsocks5():
 # Null
 def main():
     print(f"""
-{Fore.CYAN}   _   _       _ _ {Fore.RESET}
-{Fore.CYAN}  | \ | |_   _| | |{Fore.RESET}
-{Fore.CYAN}  |  \| | | | | | |{Fore.RESET}
-{Fore.CYAN}  | |\  | |_| | | |{Fore.RESET}
-{Fore.CYAN}  |_| \_|\__,_|_|_|{Fore.RESET} {Fore.WHITE}(v1.0){Fore.RESET}
+{Fore.CYAN}     __       _ _ {Fore.RESET}
+{Fore.CYAN}  /\ \ \_   _| | |{Fore.RESET}
+{Fore.CYAN} /  \/ / | | | | |{Fore.RESET}
+{Fore.CYAN}/ /\  /| |_| | | |{Fore.RESET}
+{Fore.CYAN}\_\ \/  \__,_|_|_|{Fore.RESET} {Fore.WHITE}(v1.0){Fore.RESET}
+
 """)
     print(f"[{Fore.MAGENTA}1{Fore.RESET}] " + "HTTPS")
     print(f"[{Fore.MAGENTA}2{Fore.RESET}] " + "HTTP")
