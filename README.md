@@ -1,7 +1,8 @@
 # Proxy-Scraper
 
-![Screenshot_4](https://user-images.githubusercontent.com/88463490/156807656-e2cd9d9e-cabe-4043-b15f-0b9a140e9c0e.png)
 
+
+![Screenshot_1](https://user-images.githubusercontent.com/88463490/168333361-89cf4001-aded-421c-99f5-73335b53598c.png)
 
 
 <h3 align="left">Socials:</h3>
