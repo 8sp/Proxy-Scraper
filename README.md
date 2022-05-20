@@ -1,4 +1,4 @@
-<h1 align="center">Gh-Checker</h1>
+<h1 align="center">Proxy-Scraper</h1>
 
 
 
