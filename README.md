@@ -1,8 +1,7 @@
 <h1 align="center">Proxy-Scraper</h1>
 
 
-
-![168335649-bd560b4a-eb4f-4895-ba18-d0863e8cfbd1](https://user-images.githubusercontent.com/88463490/169566032-669c5131-96c2-4edd-92b2-c96dba0722b3.png)
+![Screensdfdsfsfffsfhot_8](https://user-images.githubusercontent.com/88463490/169568655-d10231ae-8532-470e-9c1c-f326e5e474c2.png)
 
 ## REQUIREMENTS
 
