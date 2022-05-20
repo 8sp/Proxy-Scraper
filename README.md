@@ -18,7 +18,7 @@ $ pip install requests
 $ git clone https://github.com/8sp/Proxy-Scraper
 $ cd Proxy-Scraper
 $ cd src
-$ python3 gh-checker.py
+$ python3 proxy-scraper.py
 ```
 ## CONNECT WITH US:
 
